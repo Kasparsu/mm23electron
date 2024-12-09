@@ -1,6 +1,7 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('node:path')
+const fs = require('fs');
 
 function createWindow () {
   // Create the browser window.
@@ -33,9 +34,9 @@ function createWindow () {
     }
   })
 
-  ipcMain.handle('log', (event, message) => {
-    console.log(message);
-    return 'Message from ServerSide';
+  ipcMain.handle('files', (event, path) => {
+    
+    return fs.readdirSync(path);
   });
 
   // and load the index.html of the app.

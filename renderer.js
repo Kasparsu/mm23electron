@@ -6,6 +6,6 @@
  * to expose Node.js functionality from the main process.
  */
 (async () => {
-    let answer = await electronAPI.log('Hello from browserside');
+    let answer = await electronAPI.files('.');
     console.log(answer);
 })();

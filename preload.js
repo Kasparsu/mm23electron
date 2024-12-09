@@ -2,5 +2,5 @@ const { contextBridge, ipcRenderer } = require('electron/renderer')
 
 
 contextBridge.exposeInMainWorld('electronAPI', {
-  log: (message) => ipcRenderer.invoke('log', message),
+  files: (path) => ipcRenderer.invoke('files', path),
 });
