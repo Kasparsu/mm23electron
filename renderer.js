@@ -5,3 +5,7 @@
  * `contextIsolation` is turned on. Use the contextBridge API in `preload.js`
  * to expose Node.js functionality from the main process.
  */
+(async () => {
+    let answer = await electronAPI.log('Hello from browserside');
+    console.log(answer);
+})();
